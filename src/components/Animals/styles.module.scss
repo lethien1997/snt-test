@@ -1,0 +1,48 @@
+h2 {
+  color: var(--primary-color-);
+
+}
+.all {
+  background-color: var(--cover-color-);
+  .wrapper {
+    .item {
+      padding: 10px;
+
+      .itemBg {
+        border-radius: 3px;
+        overflow: hidden;
+        background-color: #fff;
+        box-shadow: 0 1px 3px rgb(77 71 81 / 20%);
+        cursor: pointer;
+        .image {
+          overflow: hidden;
+          display: flex;
+          &:hover {
+            div {
+              transition: all 0.25s ease-in-out;
+              transform: scale(1.1);
+            }
+          }
+        }
+        .infor {
+          margin-top: 5px;
+          padding: 0 10px;
+          border-top: solid 1px var(--bg-color-);
+          h3 {
+            color: var(--primary-color-);
+            margin: 5px 0;
+          }
+
+          h4 {
+            margin: 5px 0 5px 10px;
+            font-weight: 500;
+          }
+        }
+      }
+    }
+  }
+  .pagination {
+    margin-top: 20px;
+    
+  }
+}

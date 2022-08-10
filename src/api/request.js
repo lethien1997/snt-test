@@ -1,6 +1,7 @@
-const accessToken =
-  'eyJhbGciOiJIUzI1NiJ9.NzI0NDEyNjUzNDk3MjIyMTQ1.hYs4mMv3dYcTffzJciEuh_w5l0qhBUgLmZ9d31I2WLk';
+import { getAccessToken } from '../util/localStorage';
+
 export default function request() {
+  const accessToken = getAccessToken();
   return {
     Authorization: `Bearer ${accessToken}`,
   };

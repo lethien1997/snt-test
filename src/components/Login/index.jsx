@@ -1,10 +1,13 @@
 import { Container, Grid } from '@mui/material';
 import clsx from 'clsx';
-import React, { useCallback } from 'react';
+import React from 'react';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginRequest } from '../../redux/action';
 import styles from './styles.module.scss';
+import CircularProgress from '@mui/material/CircularProgress';
+import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 function isEmpty(str) {
   if (!str || str.length === 0) {
     return true;
@@ -13,7 +16,8 @@ function isEmpty(str) {
 }
 
 function Login() {
-  const { accessToken } = useSelector((state) => state.login);
+  let navigate = useNavigate();
+  const { accessToken, isSubmitting } = useSelector((state) => state.login);
   const [formValue, setFormValue] = useState({ apiKey: '', secret: '' });
   const [errors, setErrors] = useState({
     apiKey: '',
@@ -48,8 +52,11 @@ function Login() {
     event.preventDefault();
     validate();
   };
-
-  console.log('accessToken accessToken', accessToken)
+  useEffect(() => {
+    if (isSubmitting === false) {
+      navigate(`/animals`);
+    }
+  }, [isSubmitting]);
 
   return (
     <Container>
@@ -73,7 +80,15 @@ function Login() {
             {errors.secret && <p>{errors.secret}</p>}
 
             <span>
-              <button onClick={handleSubmit}>Login</button>
+              <button onClick={handleSubmit}>
+                {isSubmitting ? (
+                  <CircularProgress
+                    style={{ width: 18, height: 18, margin: 'auto' }}
+                  />
+                ) : (
+                  <h5>Login</h5>
+                )}
+              </button>
             </span>
           </form>
         </Grid>

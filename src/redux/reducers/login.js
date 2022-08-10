@@ -4,7 +4,8 @@ import actionTypes from '../../contants/actionTypes';
 const initialState = {
   accessToken: getAccessToken(),
   errMessage: null,
-  isSubmitting: false,
+  isSubmitting: null,
+  isLogOut: null,
 };
 export default (state = initialState, action) => {
   switch (action.type) {
@@ -12,6 +13,8 @@ export default (state = initialState, action) => {
       return {
         ...state,
         isSubmitting: true,
+        isLogOut: null,
+
       };
     case actionTypes.LOGIN_SUCCESS:
       return {
@@ -31,6 +34,11 @@ export default (state = initialState, action) => {
         ...state,
         errMessage: action.payload.error,
         isSubmitting: false,
+      };
+    case actionTypes.LOGOUT_REQUEST:
+      return {
+        ...state,
+        isLogOut: true,
       };
     default:
       return state;

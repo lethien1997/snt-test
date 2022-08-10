@@ -1,5 +1,9 @@
 
 :root {
   --primary-color- : rgb(58, 18, 91);
-  --bg-color- : #b1a7cd
+  --bg-color- : #b1a7cd;
+  --cover-color-: #EFEEF1
+}
+.MuiPagination-ul {
+  justify-content: center;
 }
