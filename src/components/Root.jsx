@@ -6,6 +6,7 @@ import Login from './Login';
 import { useDispatch } from 'react-redux';
 
 const Root = ({ store, history }) => {
+  
   const dispatch = useDispatch();
   const [token, setToken] = useState();
   useEffect(() => {

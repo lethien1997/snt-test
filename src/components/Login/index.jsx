@@ -59,7 +59,7 @@ function Login() {
   };
   useEffect(() => {
     if (isSubmitting === false) {
-      navigate(`/`);
+      navigate(`/animals`);
     }
     if(errMessage === true) {
       setIsErrorMessage(true)
@@ -73,7 +73,7 @@ function Login() {
         <Grid item xs={12} sm={8} md={6} className={styles.content}>
           <div className={styles.block}>
             <h1>LOGIN</h1>
-            {isErrorMessage ===true && (
+            {isErrorMessage === true && (
               <h4 className={styles.errorMessage}>
                 API Key hoặc Secret không chính xác!
               </h4>

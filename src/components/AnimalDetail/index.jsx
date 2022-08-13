@@ -22,8 +22,8 @@ function AnimalDatail() {
 
   const dispatch = useDispatch();
   useEffect(() => {
-    // const accessToken = getAccessToken();
-    if (!accessToken) {
+    const access = getAccessToken();
+    if (!access ) {
       navigate('/login');
     }
     if (isLoadingAnimalItem === false) {
@@ -31,7 +31,7 @@ function AnimalDatail() {
     if (isLoadingAnimalItem === null) {
       dispatch(getAnimalsItemRequest(params.id));
     }
-  }, [isLoadingAnimalItem, accessToken]);
+  }, [isLoadingAnimalItem, accessToken, isSubmitting]);
   useEffect(() => {
     setSizeImg(imgRef.current.clientWidth / 2);
   }, [width]);

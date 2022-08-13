@@ -9,6 +9,7 @@ import styles from './styles.module.scss';
 import 'aos/dist/aos.css';
 import { useNavigate } from 'react-router-dom';
 import Loading from '../Loading';
+import { getAnimalsRequest } from '../../redux/action';
 
 const firstIndex = 0;
 
@@ -27,6 +28,8 @@ function Animals() {
     const accessToken = localStorage.getItem('access_token');
     if (!accessToken) {
       navigate('/login');
+    } else {
+      dispatch(getAnimalsRequest());
     }
 
     if (animals) {
