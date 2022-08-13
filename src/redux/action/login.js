@@ -15,7 +15,6 @@ export const loginRequest = (formData) => {
 };
 
 export const loginSuccess = (accessToken) => {
-  console.log('accessToken', accessToken)
   return {
     type: actionTypes.LOGIN_SUCCESS,
     payload: { accessToken },

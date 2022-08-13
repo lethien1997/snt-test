@@ -6,7 +6,8 @@ const loginApi = async (formData) => {
     const res = await axios.post(`${baseUrl}/oauth2/token`, formData);
     return res.data;
   } catch (error) {
-    throw new Error('Has error when fetch data here');
+    return error
+    // throw new Error('Has error when fetch data here');
   }
 };
 export default { loginApi };

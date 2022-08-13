@@ -2,7 +2,10 @@
 :root {
   --primary-color- : rgb(58, 18, 91);
   --bg-color- : #b1a7cd;
-  --cover-color-: #EFEEF1
+  --cover-color-: #EFEEF1;
+  --error-color-: rgb(176, 70, 50)
+
+  
 }
 .MuiPagination-ul {
   justify-content: center;

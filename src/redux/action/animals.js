@@ -8,10 +8,10 @@ export const getAnimalsRequest = () => {
   };
 };
 
-export const getAnimalsSuccess = (animals) => {
+export const getAnimalsSuccess = (animals, pagination) => {
   return {
     type: actionTypes.GET_ANIMALS_SUCCESS,
-    payload: animals,
+    payload: {animals, pagination},
   };
 };
 

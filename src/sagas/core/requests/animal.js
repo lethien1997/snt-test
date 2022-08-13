@@ -1,23 +1,23 @@
 import { put, call } from 'redux-saga/effects';
 import api from '../../../api';
 import {
-  getAnimalsFail,
-  getAnimalsSuccess,
+  getAnimalsItemFail,
+  getAnimalsItemSuccess,
 } from '../../../redux/action';
+
 import { getAccessToken } from '../../../util/localStorage';
 
-export function* onGetAnimalsRequest() {
+export function* onGetAnimalItemRequest({ payload }) {
   try {
-    const { animals, pagination } = yield call(api.getAnimalsApi);
-
-    const action = getAnimalsSuccess(animals, pagination);
+    const { animal } = yield call(api.getAnimalItemApi, payload.id);
+    const action = getAnimalsItemSuccess(animal);
     yield put(action);
     return {
       success: true,
       payload: action.payload,
     };
   } catch (error) {
-    const action = getAnimalsFail(error);
+    const action = getAnimalsItemFail(error);
     yield put(action);
 
     return {
@@ -25,5 +25,4 @@ export function* onGetAnimalsRequest() {
       payload: action.payload,
     };
   }
-  // }
 }

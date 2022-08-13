@@ -17,12 +17,15 @@ function isEmpty(str) {
 
 function Login() {
   let navigate = useNavigate();
-  const { accessToken, isSubmitting } = useSelector((state) => state.login);
+  const { accessToken, isSubmitting, errMessage } = useSelector(
+    (state) => state.login
+  );
   const [formValue, setFormValue] = useState({ apiKey: '', secret: '' });
   const [errors, setErrors] = useState({
     apiKey: '',
     secret: '',
   });
+  const [isErrorMessage, setIsErrorMessage] = useState(false)
   const { apiKey, secret } = formValue;
   const dispatch = useDispatch();
   const validate = () => {
@@ -42,6 +45,8 @@ function Login() {
     }
   };
   const handleOnChange = (text, input) => {
+    // setIsErrorMessage(false)
+
     setErrors((prev) => ({ ...prev, [input]: '' }));
     setFormValue((prev) => ({ ...prev, [input]: text }));
   };
@@ -54,43 +59,60 @@ function Login() {
   };
   useEffect(() => {
     if (isSubmitting === false) {
-      navigate(`/animals`);
+      navigate(`/`);
     }
-  }, [isSubmitting]);
+    if(errMessage === true) {
+      setIsErrorMessage(true)
+    }
+  }, [isSubmitting, errMessage]);
+
 
   return (
     <Container>
       <Grid container spacing={1} className={styles.wrapper}>
         <Grid item xs={12} sm={8} md={6} className={styles.content}>
-          <h1>LOGIN</h1>
-          <form>
-            <label>API Key:</label>
-            <input
-              className={clsx({ [styles.isErrorApiKey]: errors.apiKey })}
-              value={formValue.apiKey}
-              onChange={(e) => handleOnChange(e.target.value, 'apiKey')}
-            />
-            {errors.apiKey && <p>{errors.apiKey}</p>}
-            <label>Secret:</label>
-            <input
-              className={clsx({ [styles.isErrorSecret]: errors.secret })}
-              value={formValue.secret}
-              onChange={(e) => handleOnChange(e.target.value, 'secret')}
-            />
-            {errors.secret && <p>{errors.secret}</p>}
+          <div className={styles.block}>
+            <h1>LOGIN</h1>
+            {isErrorMessage ===true && (
+              <h4 className={styles.errorMessage}>
+                API Key hoặc Secret không chính xác!
+              </h4>
+            )}
+            <form>
+              <label>API Key:</label>
+              <input
+                className={clsx({
+                  [styles.isErrorApiKey]: errors.apiKey,
+                  [styles.isErrorMessage]: isErrorMessage
+                })}
+                value={formValue.apiKey}
+                onChange={(e) => handleOnChange(e.target.value, 'apiKey')}
+              />
+              {errors.apiKey && <p>{errors.apiKey}</p>}
+              <label>Secret:</label>
+              <input
+                className={clsx({ [styles.isErrorSecret]: errors.secret, 
+                  [styles.isErrorMessage]: isErrorMessage
+                
+                })}
+                value={formValue.secret}
+                onChange={(e) => handleOnChange(e.target.value, 'secret')}
+              />
+              {errors.secret && <p>{errors.secret}</p>}
 
-            <span>
-              <button onClick={handleSubmit}>
-                {isSubmitting ? (
-                  <CircularProgress
-                    style={{ width: 18, height: 18, margin: 'auto' }}
-                  />
-                ) : (
-                  <h5>Login</h5>
-                )}
-              </button>
-            </span>
-          </form>
+              <span>
+                <button onClick={handleSubmit}>
+                  {isSubmitting === true ? (
+                    <CircularProgress
+                      style={{ width: 18, height: 18, margin: 'auto' }}
+                    />
+                  ) : (
+                    'Login'
+                  )}
+                </button>
+              </span>
+            </form>
+          </div>
         </Grid>
       </Grid>
     </Container>

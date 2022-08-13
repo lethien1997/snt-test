@@ -1,0 +1,49 @@
+h2 {
+  color: var(--primary-color-);
+
+}
+.all {
+  padding-top: 100px;
+  padding-bottom: 50px;
+  // height: 100vh;
+  .wrapper {
+    .content {
+      .contentWp {
+        background-color: #fff;
+        border-radius: 6px;
+        padding: 20px;
+        .image {
+          width: 50%;
+          border-radius: 6px;
+          overflow: hidden;
+        }
+        ul {
+          display: flex;
+          flex-direction: row;
+          border-bottom: solid 1px #525252;
+          border-top: solid 0.5px #525252;
+          padding: 20px 20px;
+          li {
+            margin-right: 30px;
+            color: #525252;
+          }
+        }
+        p {
+
+        }
+      }
+    }
+  }
+ 
+}
+
+@media only screen and (max-width: 960px) {
+ 
+}
+@media only screen and (max-width: 768px) {
+ 
+}
+@media only screen and (max-width: 600px) {
+  .all {
+    padding-top: 65px;}
+}

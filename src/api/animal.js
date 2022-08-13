@@ -2,10 +2,9 @@ import { baseUrl } from '../contants/config';
 import axios from 'axios';
 import request from './request';
 
-const getAnimalsApi = async () => {
-
+const getAnimalItemApi = async (animalId) => {
   try {
-    const res = await axios.get(`${baseUrl}/animals`, {
+    const res = await axios.get(`${baseUrl}/animals/${animalId}`, {
       headers: request(),
     });
 
@@ -14,4 +13,4 @@ const getAnimalsApi = async () => {
     throw new Error('Has error when fetch data here');
   }
 };
-export default { getAnimalsApi };
+export default { getAnimalItemApi };

@@ -4,7 +4,7 @@ import actionTypes from '../../contants/actionTypes';
 const initialState = {
   errMessage: null,
 };
-export default (state = initialState, action) => {
+export default  (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.GET_ANIMALS_REQUEST:
       return {

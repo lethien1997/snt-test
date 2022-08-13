@@ -5,8 +5,8 @@
   height: 80px;
   display: flex;
   position: fixed;
-  top: 0;
   left: 0;
+  bottom: 0;
   z-index: 1000;
   box-shadow: 0 1px 3px rgb(77 71 81 / 20%);
 
@@ -16,55 +16,7 @@
     justify-content: space-between;
     align-items: center;
     margin: auto;
-    .logo {
-      width: 150px;
-
-      img {
-        width: 100%;
-      }
-    }
-    .btns {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      .btn {
-        margin-left: 10px;
-        padding: 5px 10px;
-        align-items: center;
-        border-radius: 3px;
-        cursor: pointer;
-        &:hover {
-          opacity: 0.8;
-        }
-        h3 {
-          margin: 0;
-          width: auto;
-        }
-      }
-      .btnLogin {
-        border: solid 2px #fff;
-        h3 {
-          color: var(--primary-color-);
-        }
-      }
-      .btnLogout {
-        background-color: var(--primary-color-);
-        h3 {
-          color: #fff;
-        }
-      }
-      .avt {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        overflow: hidden;
-        display: flex;
-        img {
-          width: 100%;
-          margin: auto;
-        }
-      }
-    }
+    
   }
 }
 @media only screen and (max-width: 600px) {

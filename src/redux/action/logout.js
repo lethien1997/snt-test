@@ -3,7 +3,6 @@ import { removeAccessToken } from '../../util/localStorage';
 
 export const logoutRequest = () => {
   const rs = removeAccessToken();
-  console.log('rs', rs)
   return {
     type: actionTypes.LOGIN_REQUEST,
     payload: {},
@@ -11,7 +10,6 @@ export const logoutRequest = () => {
 };
 
 export const loginSuccess = (accessToken) => {
-  console.log('accessToken', accessToken);
   return {
     type: actionTypes.LOGIN_SUCCESS,
     payload: { accessToken },

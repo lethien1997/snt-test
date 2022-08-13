@@ -1,13 +1,13 @@
-// import socket from './socket';
 
-// import request from './request';
 
 import login from './login';
 import animals from './animals';
+import animal from './animal';
+
 
 
 export default {
-  // ...request,
   ...login,
-  ...animals
+  ...animals,
+  ...animal
 };

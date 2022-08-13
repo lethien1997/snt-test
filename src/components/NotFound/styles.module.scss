@@ -1,0 +1,19 @@
+.container {
+  height: 80vh;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .desc {
+    margin: auto;
+    color: var(--primary-color-);
+  }
+
+  .icon {
+    color: var(--bg-color-);
+    font-size: 25px;
+    margin-right: 5;
+  }
+}
